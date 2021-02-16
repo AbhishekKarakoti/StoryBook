@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-8 mx-auto mt-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3>{{story.title}}&nbsp;<span class="ml-3">{{{editIcon story.user user story._id false}}}</span>
+                    </h3>
+                </div>
+                <div class="card-body">
+
+
+                    <span>{{formatDate createdAt 'MMMM Do YY, h:mm:ss a'}}</span>
+                    {{{story.body}}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

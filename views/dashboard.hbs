@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Welcome {{name}}</h1>
+            <p>Here are your stories</p>
+            {{#if stories}}
+            <table class=" table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <th>Title</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Edit/Delete</th>
+                </thead>
+                <tbody>
+                    {{#each stories}}
+                    <tr>
+                        <td><a href="/stories/{{_id}}">{{title}}</a></td>
+                        <td>{{formatDate createdAt 'MMMM Do YY, h:mm:ss a'}}</td>
+                        <td><span>{{status}}</span></td>
+                        <td class="d-flex  justify-content-around"><a href="Stories/edit/{{_id}}"
+                                class="btn btn-primary">
+                                <i class="fas fa-edit fa-x"></i></a>
+
+                            <form action="/Stories/{{_id}}" id="delete-form" method="POST">
+                                <input type="hidden" name="_method" value="DELETE">
+                                <button class="btn btn-danger"> <i class="fas fa-trash"></i></button>
+                            </form>
+                        </td>
+
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+
+            {{else}}
+            <p>No stories yet!!!</p>
+            {{/if}}
+        </div>
+    </div>
+</div>
